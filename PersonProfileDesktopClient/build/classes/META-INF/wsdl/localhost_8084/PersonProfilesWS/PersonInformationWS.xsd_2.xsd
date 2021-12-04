@@ -2,6 +2,10 @@
 
 <xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8084/PersonProfilesWS/PersonInformationWS?xsd=1" />
 
+<xs:element name="delete" type="tns:delete" />
+
+<xs:element name="deleteResponse" type="tns:deleteResponse" />
+
 <xs:element name="getAge" type="tns:getAge" />
 
 <xs:element name="getAgeResponse" type="tns:getAgeResponse" />
@@ -18,9 +22,37 @@
 
 <xs:element name="selectPersonInformationByFilterByFullnameResponse" type="tns:selectPersonInformationByFilterByFullnameResponse" />
 
-<xs:element name="selectPersonInformationById" type="tns:selectPersonInformationById" />
+<xs:element name="selectPersonInformationByID" type="tns:selectPersonInformationByID" />
 
-<xs:element name="selectPersonInformationByIdResponse" type="tns:selectPersonInformationByIdResponse" />
+<xs:element name="selectPersonInformationByIDResponse" type="tns:selectPersonInformationByIDResponse" />
+
+<xs:element name="updatePersonProfile" type="tns:updatePersonProfile" />
+
+<xs:element name="updatePersonProfileResponse" type="tns:updatePersonProfileResponse" />
+
+<xs:complexType name="delete">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0" />
+<xs:element name="firstname" type="xs:string" minOccurs="0" />
+<xs:element name="lastname" type="xs:string" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteResponse">
+<xs:sequence />
+</xs:complexType>
+
+<xs:complexType name="selectPersonInformationByID">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="selectPersonInformationByIDResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="insertPersonProfile">
 <xs:sequence>
@@ -36,15 +68,18 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="selectPersonInformationById">
+<xs:complexType name="updatePersonProfile">
 <xs:sequence>
-<xs:element name="birtdate" type="xs:int" minOccurs="0" />
+<xs:element name="id" type="xs:int" minOccurs="0" />
+<xs:element name="firstname" type="xs:string" minOccurs="0" />
+<xs:element name="lastname" type="xs:string" minOccurs="0" />
+<xs:element name="birthdate" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="selectPersonInformationByIdResponse">
+<xs:complexType name="updatePersonProfileResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+<xs:element name="return" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 
@@ -62,7 +97,7 @@
 
 <xs:complexType name="selectPersonInformationByFilterByFullname">
 <xs:sequence>
-<xs:element name="birtdate" type="xs:string" minOccurs="0" />
+<xs:element name="fullname" type="xs:string" minOccurs="0" />
 </xs:sequence>
 </xs:complexType>
 

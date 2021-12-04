@@ -36,6 +36,24 @@ public class PersonInformationWS {
         return inserted;
     }
     
+    @WebMethod(operationName = "updatePersonProfile")
+    public String updatePersonProfile(
+            @WebParam(name="id") java.lang.Integer id,
+            @WebParam(name="firstname") java.lang.String firstname,
+            @WebParam(name="lastname") java.lang.String lastname,
+            @WebParam(name="birthdate") java.lang.String birthdate) {
+        
+          PersonProfile p = new PersonProfile();
+          p.setId(id);
+          p.setFirstname(firstname);
+          p.setLastname(lastname);
+          p.setBirthdate(birthdate);
+          p.update();
+          
+          String updated = "\nFirstname: "+firstname+"\nLastname: "+lastname+"\nBirthdate: "+birthdate;
+        return updated;
+    }
+    
     @WebMethod(operationName = "selectAllPersonInformation")
     public ArrayList<String[]> selectAllPersonInformation() {
         
@@ -44,30 +62,29 @@ public class PersonInformationWS {
         PersonProfile p = new PersonProfile();
         p.select();
         for (PersonProfile a : p.getcData()) {
-            String[] info = new String[4];
-            info[0] = a.getFirstname();
-            info[1] = a.getLastname();
-            info[2] = a.getBirthdate();
-            info[3] = String.valueOf(getAge(a.getBirthdate()));
+            String[] info = new String[5];
+            info[0] = String.valueOf(a.getId());
+            info[1] = a.getFirstname();
+            info[2] = a.getLastname();
+            info[3] = a.getBirthdate();
+            info[4] = String.valueOf(getAge(a.getBirthdate()));
             personsInfo.add(info);
         }
         return personsInfo;
     }
     
-    @WebMethod(operationName = "selectPersonInformationById")
-    public ArrayList<String> selecPersonInformationById(@WebParam(name="birtdate") Integer id) {
-        
-        ArrayList<String> personsInfo = new ArrayList<String>();
-        
+    @WebMethod(operationName = "selectPersonInformationByID")
+    public String[] selectPersonInformationByID(@WebParam(name="id") Integer id) {
+              
         PersonProfile p = new PersonProfile();
-        p.select();
-        for (PersonProfile a : p.getcData()) {
-            personsInfo.add(a.getFirstname());
-            personsInfo.add(a.getLastname());
-            personsInfo.add(a.getBirthdate());
-            personsInfo.add(String.valueOf(getAge(a.getBirthdate())));
-        }
-        return personsInfo;
+        p.selectById(id);
+        String[] info = new String[5];
+        info[0] = String.valueOf(p.getId());
+        info[1] = p.getFirstname();
+        info[2] = p.getLastname();
+        info[3] = p.getBirthdate();
+        info[4] = String.valueOf(getAge(p.getBirthdate()));
+        return info;
     }
     
     @WebMethod(operationName = "selectPersonInformationByFilterByFullname")
@@ -78,14 +95,29 @@ public class PersonInformationWS {
         PersonProfile p = new PersonProfile();
         p.selectFilterByFullname(fullname);
         for (PersonProfile a : p.getcData()) {
-            String[] info = new String[4];
-            info[0] = a.getFirstname();
-            info[1] = a.getLastname();
-            info[2] = a.getBirthdate();
-            info[3] = String.valueOf(getAge(a.getBirthdate()));
+            String[] info = new String[5];
+            info[0] = String.valueOf(a.getId());
+            info[1] = a.getFirstname();
+            info[2] = a.getLastname();
+            info[3] = a.getBirthdate();
+            info[4] = String.valueOf(getAge(a.getBirthdate()));
             personsInfo.add(info);
         }
         return personsInfo;
+    }
+    
+    @WebMethod(operationName = "delete")
+    public void delete(@WebParam(name="id") Integer id, 
+            @WebParam(name="firstname") String firstname, 
+            @WebParam(name="lastname") String lastname) {
+   
+        PersonProfile p = new PersonProfile();
+        p.setId(id);
+        p.setFirstname(firstname);
+        p.setLastname(lastname);
+        p.setBirthdate(firstname);
+        p.delete();
+        
     }
     
     @WebMethod(operationName = "getAge")

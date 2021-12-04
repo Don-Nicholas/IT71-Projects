@@ -25,13 +25,17 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _InsertPersonProfileResponse_QNAME = new QName("http://data.person/", "insertPersonProfileResponse");
-    private final static QName _SelectAllPersonInformation_QNAME = new QName("http://data.person/", "selectAllPersonInformation");
-    private final static QName _GetAge_QNAME = new QName("http://data.person/", "getAge");
+    private final static QName _DeleteResponse_QNAME = new QName("http://data.person/", "deleteResponse");
     private final static QName _GetAgeResponse_QNAME = new QName("http://data.person/", "getAgeResponse");
     private final static QName _SelectPersonInformationByFilterByFullname_QNAME = new QName("http://data.person/", "selectPersonInformationByFilterByFullname");
+    private final static QName _UpdatePersonProfileResponse_QNAME = new QName("http://data.person/", "updatePersonProfileResponse");
+    private final static QName _SelectPersonInformationByIDResponse_QNAME = new QName("http://data.person/", "selectPersonInformationByIDResponse");
+    private final static QName _UpdatePersonProfile_QNAME = new QName("http://data.person/", "updatePersonProfile");
+    private final static QName _SelectAllPersonInformation_QNAME = new QName("http://data.person/", "selectAllPersonInformation");
+    private final static QName _GetAge_QNAME = new QName("http://data.person/", "getAge");
     private final static QName _SelectPersonInformationByFilterByFullnameResponse_QNAME = new QName("http://data.person/", "selectPersonInformationByFilterByFullnameResponse");
-    private final static QName _SelectPersonInformationById_QNAME = new QName("http://data.person/", "selectPersonInformationById");
-    private final static QName _SelectPersonInformationByIdResponse_QNAME = new QName("http://data.person/", "selectPersonInformationByIdResponse");
+    private final static QName _SelectPersonInformationByID_QNAME = new QName("http://data.person/", "selectPersonInformationByID");
+    private final static QName _Delete_QNAME = new QName("http://data.person/", "delete");
     private final static QName _SelectAllPersonInformationResponse_QNAME = new QName("http://data.person/", "selectAllPersonInformationResponse");
     private final static QName _InsertPersonProfile_QNAME = new QName("http://data.person/", "insertPersonProfile");
 
@@ -43,14 +47,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SelectPersonInformationByFilterByFullname }
-     * 
-     */
-    public SelectPersonInformationByFilterByFullname createSelectPersonInformationByFilterByFullname() {
-        return new SelectPersonInformationByFilterByFullname();
-    }
-
-    /**
      * Create an instance of {@link GetAge }
      * 
      */
@@ -59,27 +55,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAgeResponse }
-     * 
-     */
-    public GetAgeResponse createGetAgeResponse() {
-        return new GetAgeResponse();
-    }
-
-    /**
      * Create an instance of {@link SelectAllPersonInformation }
      * 
      */
     public SelectAllPersonInformation createSelectAllPersonInformation() {
         return new SelectAllPersonInformation();
-    }
-
-    /**
-     * Create an instance of {@link InsertPersonProfileResponse }
-     * 
-     */
-    public InsertPersonProfileResponse createInsertPersonProfileResponse() {
-        return new InsertPersonProfileResponse();
     }
 
     /**
@@ -99,11 +79,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SelectPersonInformationByIdResponse }
+     * Create an instance of {@link Delete }
      * 
      */
-    public SelectPersonInformationByIdResponse createSelectPersonInformationByIdResponse() {
-        return new SelectPersonInformationByIdResponse();
+    public Delete createDelete() {
+        return new Delete();
     }
 
     /**
@@ -115,11 +95,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SelectPersonInformationById }
+     * Create an instance of {@link SelectPersonInformationByID }
      * 
      */
-    public SelectPersonInformationById createSelectPersonInformationById() {
-        return new SelectPersonInformationById();
+    public SelectPersonInformationByID createSelectPersonInformationByID() {
+        return new SelectPersonInformationByID();
+    }
+
+    /**
+     * Create an instance of {@link SelectPersonInformationByFilterByFullname }
+     * 
+     */
+    public SelectPersonInformationByFilterByFullname createSelectPersonInformationByFilterByFullname() {
+        return new SelectPersonInformationByFilterByFullname();
+    }
+
+    /**
+     * Create an instance of {@link UpdatePersonProfileResponse }
+     * 
+     */
+    public UpdatePersonProfileResponse createUpdatePersonProfileResponse() {
+        return new UpdatePersonProfileResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetAgeResponse }
+     * 
+     */
+    public GetAgeResponse createGetAgeResponse() {
+        return new GetAgeResponse();
+    }
+
+    /**
+     * Create an instance of {@link DeleteResponse }
+     * 
+     */
+    public DeleteResponse createDeleteResponse() {
+        return new DeleteResponse();
+    }
+
+    /**
+     * Create an instance of {@link InsertPersonProfileResponse }
+     * 
+     */
+    public InsertPersonProfileResponse createInsertPersonProfileResponse() {
+        return new InsertPersonProfileResponse();
+    }
+
+    /**
+     * Create an instance of {@link UpdatePersonProfile }
+     * 
+     */
+    public UpdatePersonProfile createUpdatePersonProfile() {
+        return new UpdatePersonProfile();
+    }
+
+    /**
+     * Create an instance of {@link SelectPersonInformationByIDResponse }
+     * 
+     */
+    public SelectPersonInformationByIDResponse createSelectPersonInformationByIDResponse() {
+        return new SelectPersonInformationByIDResponse();
     }
 
     /**
@@ -132,21 +168,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SelectAllPersonInformation }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DeleteResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.person/", name = "selectAllPersonInformation")
-    public JAXBElement<SelectAllPersonInformation> createSelectAllPersonInformation(SelectAllPersonInformation value) {
-        return new JAXBElement<SelectAllPersonInformation>(_SelectAllPersonInformation_QNAME, SelectAllPersonInformation.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAge }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://data.person/", name = "getAge")
-    public JAXBElement<GetAge> createGetAge(GetAge value) {
-        return new JAXBElement<GetAge>(_GetAge_QNAME, GetAge.class, null, value);
+    @XmlElementDecl(namespace = "http://data.person/", name = "deleteResponse")
+    public JAXBElement<DeleteResponse> createDeleteResponse(DeleteResponse value) {
+        return new JAXBElement<DeleteResponse>(_DeleteResponse_QNAME, DeleteResponse.class, null, value);
     }
 
     /**
@@ -168,6 +195,51 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonProfileResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.person/", name = "updatePersonProfileResponse")
+    public JAXBElement<UpdatePersonProfileResponse> createUpdatePersonProfileResponse(UpdatePersonProfileResponse value) {
+        return new JAXBElement<UpdatePersonProfileResponse>(_UpdatePersonProfileResponse_QNAME, UpdatePersonProfileResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SelectPersonInformationByIDResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.person/", name = "selectPersonInformationByIDResponse")
+    public JAXBElement<SelectPersonInformationByIDResponse> createSelectPersonInformationByIDResponse(SelectPersonInformationByIDResponse value) {
+        return new JAXBElement<SelectPersonInformationByIDResponse>(_SelectPersonInformationByIDResponse_QNAME, SelectPersonInformationByIDResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonProfile }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.person/", name = "updatePersonProfile")
+    public JAXBElement<UpdatePersonProfile> createUpdatePersonProfile(UpdatePersonProfile value) {
+        return new JAXBElement<UpdatePersonProfile>(_UpdatePersonProfile_QNAME, UpdatePersonProfile.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SelectAllPersonInformation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.person/", name = "selectAllPersonInformation")
+    public JAXBElement<SelectAllPersonInformation> createSelectAllPersonInformation(SelectAllPersonInformation value) {
+        return new JAXBElement<SelectAllPersonInformation>(_SelectAllPersonInformation_QNAME, SelectAllPersonInformation.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAge }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://data.person/", name = "getAge")
+    public JAXBElement<GetAge> createGetAge(GetAge value) {
+        return new JAXBElement<GetAge>(_GetAge_QNAME, GetAge.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SelectPersonInformationByFilterByFullnameResponse }{@code >}}
      * 
      */
@@ -177,21 +249,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SelectPersonInformationById }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SelectPersonInformationByID }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.person/", name = "selectPersonInformationById")
-    public JAXBElement<SelectPersonInformationById> createSelectPersonInformationById(SelectPersonInformationById value) {
-        return new JAXBElement<SelectPersonInformationById>(_SelectPersonInformationById_QNAME, SelectPersonInformationById.class, null, value);
+    @XmlElementDecl(namespace = "http://data.person/", name = "selectPersonInformationByID")
+    public JAXBElement<SelectPersonInformationByID> createSelectPersonInformationByID(SelectPersonInformationByID value) {
+        return new JAXBElement<SelectPersonInformationByID>(_SelectPersonInformationByID_QNAME, SelectPersonInformationByID.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SelectPersonInformationByIdResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Delete }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://data.person/", name = "selectPersonInformationByIdResponse")
-    public JAXBElement<SelectPersonInformationByIdResponse> createSelectPersonInformationByIdResponse(SelectPersonInformationByIdResponse value) {
-        return new JAXBElement<SelectPersonInformationByIdResponse>(_SelectPersonInformationByIdResponse_QNAME, SelectPersonInformationByIdResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://data.person/", name = "delete")
+    public JAXBElement<Delete> createDelete(Delete value) {
+        return new JAXBElement<Delete>(_Delete_QNAME, Delete.class, null, value);
     }
 
     /**

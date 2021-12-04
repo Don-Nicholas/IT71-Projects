@@ -97,6 +97,24 @@ public class PersonProfile extends DBConnection {
             }
         }
     }
+    
+    public void delete() {
+        try {
+            super.getConnectToDbHost();
+            PreparedStatement statement = conn.prepareStatement("DELETE FROM `tblpersons` WHERE `id` = ?");
+            statement.setInt(1, id);
+            statement.execute();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                //conn.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 
     public void selectFilterByFullname(String fullname) {
         setcData(new ArrayList<PersonProfile>());
