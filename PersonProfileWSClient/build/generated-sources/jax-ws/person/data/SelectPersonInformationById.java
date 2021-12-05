@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for selectPersonInformationById complex type.
+ * <p>Java class for selectPersonInformationByID complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="selectPersonInformationById">
+ * &lt;complexType name="selectPersonInformationByID">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="birtdate" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "selectPersonInformationById", propOrder = {
-    "birtdate"
+@XmlType(name = "selectPersonInformationByID", propOrder = {
+    "id"
 })
-public class SelectPersonInformationById {
+public class SelectPersonInformationByID {
 
-    protected Integer birtdate;
+    protected Integer id;
 
     /**
-     * Gets the value of the birtdate property.
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public Integer getBirtdate() {
-        return birtdate;
+    public Integer getId() {
+        return id;
     }
 
     /**
-     * Sets the value of the birtdate property.
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setBirtdate(Integer value) {
-        this.birtdate = value;
+    public void setId(Integer value) {
+        this.id = value;
     }
 
 }

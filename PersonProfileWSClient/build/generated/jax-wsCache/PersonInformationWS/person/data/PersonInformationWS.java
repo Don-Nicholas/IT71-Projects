@@ -29,30 +29,15 @@ public interface PersonInformationWS {
 
     /**
      * 
-     * @param birtdate
-     * @return
-     *     returns java.util.List<java.lang.String>
+     * @param id
      */
     @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "selectPersonInformationById", targetNamespace = "http://data.person/", className = "person.data.SelectPersonInformationById")
-    @ResponseWrapper(localName = "selectPersonInformationByIdResponse", targetNamespace = "http://data.person/", className = "person.data.SelectPersonInformationByIdResponse")
-    @Action(input = "http://data.person/PersonInformationWS/selectPersonInformationByIdRequest", output = "http://data.person/PersonInformationWS/selectPersonInformationByIdResponse")
-    public List<String> selectPersonInformationById(
-        @WebParam(name = "birtdate", targetNamespace = "")
-        Integer birtdate);
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<net.java.dev.jaxb.array.StringArray>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "selectAllPersonInformation", targetNamespace = "http://data.person/", className = "person.data.SelectAllPersonInformation")
-    @ResponseWrapper(localName = "selectAllPersonInformationResponse", targetNamespace = "http://data.person/", className = "person.data.SelectAllPersonInformationResponse")
-    @Action(input = "http://data.person/PersonInformationWS/selectAllPersonInformationRequest", output = "http://data.person/PersonInformationWS/selectAllPersonInformationResponse")
-    public List<StringArray> selectAllPersonInformation();
+    @RequestWrapper(localName = "delete", targetNamespace = "http://data.person/", className = "person.data.Delete")
+    @ResponseWrapper(localName = "deleteResponse", targetNamespace = "http://data.person/", className = "person.data.DeleteResponse")
+    @Action(input = "http://data.person/PersonInformationWS/deleteRequest", output = "http://data.person/PersonInformationWS/deleteResponse")
+    public void delete(
+        @WebParam(name = "id", targetNamespace = "")
+        Integer id);
 
     /**
      * 
@@ -88,6 +73,42 @@ public interface PersonInformationWS {
      * 
      * @param firstname
      * @param birthdate
+     * @param id
+     * @param lastname
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "updatePersonProfile", targetNamespace = "http://data.person/", className = "person.data.UpdatePersonProfile")
+    @ResponseWrapper(localName = "updatePersonProfileResponse", targetNamespace = "http://data.person/", className = "person.data.UpdatePersonProfileResponse")
+    @Action(input = "http://data.person/PersonInformationWS/updatePersonProfileRequest", output = "http://data.person/PersonInformationWS/updatePersonProfileResponse")
+    public String updatePersonProfile(
+        @WebParam(name = "id", targetNamespace = "")
+        Integer id,
+        @WebParam(name = "firstname", targetNamespace = "")
+        String firstname,
+        @WebParam(name = "lastname", targetNamespace = "")
+        String lastname,
+        @WebParam(name = "birthdate", targetNamespace = "")
+        String birthdate);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<net.java.dev.jaxb.array.StringArray>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "selectAllPersonInformation", targetNamespace = "http://data.person/", className = "person.data.SelectAllPersonInformation")
+    @ResponseWrapper(localName = "selectAllPersonInformationResponse", targetNamespace = "http://data.person/", className = "person.data.SelectAllPersonInformationResponse")
+    @Action(input = "http://data.person/PersonInformationWS/selectAllPersonInformationRequest", output = "http://data.person/PersonInformationWS/selectAllPersonInformationResponse")
+    public List<StringArray> selectAllPersonInformation();
+
+    /**
+     * 
+     * @param firstname
+     * @param birthdate
      * @param lastname
      * @return
      *     returns java.lang.String
@@ -104,5 +125,20 @@ public interface PersonInformationWS {
         String lastname,
         @WebParam(name = "birthdate", targetNamespace = "")
         String birthdate);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.util.List<java.lang.String>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "selectPersonInformationByID", targetNamespace = "http://data.person/", className = "person.data.SelectPersonInformationByID")
+    @ResponseWrapper(localName = "selectPersonInformationByIDResponse", targetNamespace = "http://data.person/", className = "person.data.SelectPersonInformationByIDResponse")
+    @Action(input = "http://data.person/PersonInformationWS/selectPersonInformationByIDRequest", output = "http://data.person/PersonInformationWS/selectPersonInformationByIDResponse")
+    public List<String> selectPersonInformationByID(
+        @WebParam(name = "id", targetNamespace = "")
+        Integer id);
 
 }

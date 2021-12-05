@@ -107,15 +107,10 @@ public class PersonInformationWS {
     }
     
     @WebMethod(operationName = "delete")
-    public void delete(@WebParam(name="id") Integer id, 
-            @WebParam(name="firstname") String firstname, 
-            @WebParam(name="lastname") String lastname) {
+    public void delete(@WebParam(name="id") Integer id) {
    
         PersonProfile p = new PersonProfile();
         p.setId(id);
-        p.setFirstname(firstname);
-        p.setLastname(lastname);
-        p.setBirthdate(firstname);
         p.delete();
         
     }

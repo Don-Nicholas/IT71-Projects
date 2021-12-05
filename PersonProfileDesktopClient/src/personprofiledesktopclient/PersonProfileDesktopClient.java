@@ -155,6 +155,11 @@ public class PersonProfileDesktopClient extends javax.swing.JFrame {
                 btnDeleteMouseClicked(evt);
             }
         });
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnExit.setBackground(new java.awt.Color(255, 0, 0));
         btnExit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -358,6 +363,7 @@ public class PersonProfileDesktopClient extends javax.swing.JFrame {
         catch(Exception e) {
             JOptionPane.showMessageDialog(null,"Insert Failed!");
         }
+        updateTable();
     }//GEN-LAST:event_btnInsertMouseClicked
 
     
@@ -430,14 +436,10 @@ public class PersonProfileDesktopClient extends javax.swing.JFrame {
         DefaultTableModel recordTable = (DefaultTableModel)tblPerson.getModel();
         int selectedRow = tblPerson.getSelectedRow();
         
-        int id = Integer.parseInt(recordTable.getValueAt(selectedRow, 0).toString());
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String birthdate = sdf.format(calendarBirthdate.getDate());
-            String firstname = txtFirstName.getText();
-            String lastname = txtLastName.getText();
-            
-            getPort().delete(id, firstname, lastname);
+             int id = Integer.parseInt(recordTable.getValueAt(selectedRow, 0).toString());
+
+            getPort().delete(id);
             JOptionPane.showMessageDialog(null,"Deleted Successfully!");
         }
         catch(Exception e) {
@@ -498,6 +500,10 @@ public class PersonProfileDesktopClient extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnSearchMouseClicked
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     
     public void updateTable() {

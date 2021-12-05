@@ -7,17 +7,11 @@
 <xsd:import namespace="http://data.person/" schemaLocation="http://localhost:8084/PersonProfilesWS/PersonInformationWS?xsd=2" />
 </xsd:schema>
 </types>
-<message name="selectPersonInformationById">
-<part name="parameters" element="tns:selectPersonInformationById" />
+<message name="delete">
+<part name="parameters" element="tns:delete" />
 </message>
-<message name="selectPersonInformationByIdResponse">
-<part name="parameters" element="tns:selectPersonInformationByIdResponse" />
-</message>
-<message name="selectAllPersonInformation">
-<part name="parameters" element="tns:selectAllPersonInformation" />
-</message>
-<message name="selectAllPersonInformationResponse">
-<part name="parameters" element="tns:selectAllPersonInformationResponse" />
+<message name="deleteResponse">
+<part name="parameters" element="tns:deleteResponse" />
 </message>
 <message name="selectPersonInformationByFilterByFullname">
 <part name="parameters" element="tns:selectPersonInformationByFilterByFullname" />
@@ -31,20 +25,34 @@
 <message name="getAgeResponse">
 <part name="parameters" element="tns:getAgeResponse" />
 </message>
+<message name="updatePersonProfile">
+<part name="parameters" element="tns:updatePersonProfile" />
+</message>
+<message name="updatePersonProfileResponse">
+<part name="parameters" element="tns:updatePersonProfileResponse" />
+</message>
+<message name="selectAllPersonInformation">
+<part name="parameters" element="tns:selectAllPersonInformation" />
+</message>
+<message name="selectAllPersonInformationResponse">
+<part name="parameters" element="tns:selectAllPersonInformationResponse" />
+</message>
 <message name="insertPersonProfile">
 <part name="parameters" element="tns:insertPersonProfile" />
 </message>
 <message name="insertPersonProfileResponse">
 <part name="parameters" element="tns:insertPersonProfileResponse" />
 </message>
+<message name="selectPersonInformationByID">
+<part name="parameters" element="tns:selectPersonInformationByID" />
+</message>
+<message name="selectPersonInformationByIDResponse">
+<part name="parameters" element="tns:selectPersonInformationByIDResponse" />
+</message>
 <portType name="PersonInformationWS">
-<operation name="selectPersonInformationById">
-<input wsam:Action="http://data.person/PersonInformationWS/selectPersonInformationByIdRequest" message="tns:selectPersonInformationById" />
-<output wsam:Action="http://data.person/PersonInformationWS/selectPersonInformationByIdResponse" message="tns:selectPersonInformationByIdResponse" />
-</operation>
-<operation name="selectAllPersonInformation">
-<input wsam:Action="http://data.person/PersonInformationWS/selectAllPersonInformationRequest" message="tns:selectAllPersonInformation" />
-<output wsam:Action="http://data.person/PersonInformationWS/selectAllPersonInformationResponse" message="tns:selectAllPersonInformationResponse" />
+<operation name="delete">
+<input wsam:Action="http://data.person/PersonInformationWS/deleteRequest" message="tns:delete" />
+<output wsam:Action="http://data.person/PersonInformationWS/deleteResponse" message="tns:deleteResponse" />
 </operation>
 <operation name="selectPersonInformationByFilterByFullname">
 <input wsam:Action="http://data.person/PersonInformationWS/selectPersonInformationByFilterByFullnameRequest" message="tns:selectPersonInformationByFilterByFullname" />
@@ -54,23 +62,26 @@
 <input wsam:Action="http://data.person/PersonInformationWS/getAgeRequest" message="tns:getAge" />
 <output wsam:Action="http://data.person/PersonInformationWS/getAgeResponse" message="tns:getAgeResponse" />
 </operation>
+<operation name="updatePersonProfile">
+<input wsam:Action="http://data.person/PersonInformationWS/updatePersonProfileRequest" message="tns:updatePersonProfile" />
+<output wsam:Action="http://data.person/PersonInformationWS/updatePersonProfileResponse" message="tns:updatePersonProfileResponse" />
+</operation>
+<operation name="selectAllPersonInformation">
+<input wsam:Action="http://data.person/PersonInformationWS/selectAllPersonInformationRequest" message="tns:selectAllPersonInformation" />
+<output wsam:Action="http://data.person/PersonInformationWS/selectAllPersonInformationResponse" message="tns:selectAllPersonInformationResponse" />
+</operation>
 <operation name="insertPersonProfile">
 <input wsam:Action="http://data.person/PersonInformationWS/insertPersonProfileRequest" message="tns:insertPersonProfile" />
 <output wsam:Action="http://data.person/PersonInformationWS/insertPersonProfileResponse" message="tns:insertPersonProfileResponse" />
 </operation>
+<operation name="selectPersonInformationByID">
+<input wsam:Action="http://data.person/PersonInformationWS/selectPersonInformationByIDRequest" message="tns:selectPersonInformationByID" />
+<output wsam:Action="http://data.person/PersonInformationWS/selectPersonInformationByIDResponse" message="tns:selectPersonInformationByIDResponse" />
+</operation>
 </portType>
 <binding name="PersonInformationWSPortBinding" type="tns:PersonInformationWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
-<operation name="selectPersonInformationById">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="selectAllPersonInformation">
+<operation name="delete">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -97,7 +108,34 @@
 <soap:body use="literal" />
 </output>
 </operation>
+<operation name="updatePersonProfile">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="selectAllPersonInformation">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
 <operation name="insertPersonProfile">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="selectPersonInformationByID">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />

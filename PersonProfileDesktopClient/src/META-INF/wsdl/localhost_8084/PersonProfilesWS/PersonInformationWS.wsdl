@@ -13,24 +13,6 @@
 <message name="deleteResponse">
 <part name="parameters" element="tns:deleteResponse" />
 </message>
-<message name="updatePersonProfile">
-<part name="parameters" element="tns:updatePersonProfile" />
-</message>
-<message name="updatePersonProfileResponse">
-<part name="parameters" element="tns:updatePersonProfileResponse" />
-</message>
-<message name="insertPersonProfile">
-<part name="parameters" element="tns:insertPersonProfile" />
-</message>
-<message name="insertPersonProfileResponse">
-<part name="parameters" element="tns:insertPersonProfileResponse" />
-</message>
-<message name="selectAllPersonInformation">
-<part name="parameters" element="tns:selectAllPersonInformation" />
-</message>
-<message name="selectAllPersonInformationResponse">
-<part name="parameters" element="tns:selectAllPersonInformationResponse" />
-</message>
 <message name="selectPersonInformationByFilterByFullname">
 <part name="parameters" element="tns:selectPersonInformationByFilterByFullname" />
 </message>
@@ -43,6 +25,24 @@
 <message name="getAgeResponse">
 <part name="parameters" element="tns:getAgeResponse" />
 </message>
+<message name="updatePersonProfile">
+<part name="parameters" element="tns:updatePersonProfile" />
+</message>
+<message name="updatePersonProfileResponse">
+<part name="parameters" element="tns:updatePersonProfileResponse" />
+</message>
+<message name="selectAllPersonInformation">
+<part name="parameters" element="tns:selectAllPersonInformation" />
+</message>
+<message name="selectAllPersonInformationResponse">
+<part name="parameters" element="tns:selectAllPersonInformationResponse" />
+</message>
+<message name="insertPersonProfile">
+<part name="parameters" element="tns:insertPersonProfile" />
+</message>
+<message name="insertPersonProfileResponse">
+<part name="parameters" element="tns:insertPersonProfileResponse" />
+</message>
 <message name="selectPersonInformationByID">
 <part name="parameters" element="tns:selectPersonInformationByID" />
 </message>
@@ -54,18 +54,6 @@
 <input wsam:Action="http://data.person/PersonInformationWS/deleteRequest" message="tns:delete" />
 <output wsam:Action="http://data.person/PersonInformationWS/deleteResponse" message="tns:deleteResponse" />
 </operation>
-<operation name="updatePersonProfile">
-<input wsam:Action="http://data.person/PersonInformationWS/updatePersonProfileRequest" message="tns:updatePersonProfile" />
-<output wsam:Action="http://data.person/PersonInformationWS/updatePersonProfileResponse" message="tns:updatePersonProfileResponse" />
-</operation>
-<operation name="insertPersonProfile">
-<input wsam:Action="http://data.person/PersonInformationWS/insertPersonProfileRequest" message="tns:insertPersonProfile" />
-<output wsam:Action="http://data.person/PersonInformationWS/insertPersonProfileResponse" message="tns:insertPersonProfileResponse" />
-</operation>
-<operation name="selectAllPersonInformation">
-<input wsam:Action="http://data.person/PersonInformationWS/selectAllPersonInformationRequest" message="tns:selectAllPersonInformation" />
-<output wsam:Action="http://data.person/PersonInformationWS/selectAllPersonInformationResponse" message="tns:selectAllPersonInformationResponse" />
-</operation>
 <operation name="selectPersonInformationByFilterByFullname">
 <input wsam:Action="http://data.person/PersonInformationWS/selectPersonInformationByFilterByFullnameRequest" message="tns:selectPersonInformationByFilterByFullname" />
 <output wsam:Action="http://data.person/PersonInformationWS/selectPersonInformationByFilterByFullnameResponse" message="tns:selectPersonInformationByFilterByFullnameResponse" />
@@ -73,6 +61,18 @@
 <operation name="getAge">
 <input wsam:Action="http://data.person/PersonInformationWS/getAgeRequest" message="tns:getAge" />
 <output wsam:Action="http://data.person/PersonInformationWS/getAgeResponse" message="tns:getAgeResponse" />
+</operation>
+<operation name="updatePersonProfile">
+<input wsam:Action="http://data.person/PersonInformationWS/updatePersonProfileRequest" message="tns:updatePersonProfile" />
+<output wsam:Action="http://data.person/PersonInformationWS/updatePersonProfileResponse" message="tns:updatePersonProfileResponse" />
+</operation>
+<operation name="selectAllPersonInformation">
+<input wsam:Action="http://data.person/PersonInformationWS/selectAllPersonInformationRequest" message="tns:selectAllPersonInformation" />
+<output wsam:Action="http://data.person/PersonInformationWS/selectAllPersonInformationResponse" message="tns:selectAllPersonInformationResponse" />
+</operation>
+<operation name="insertPersonProfile">
+<input wsam:Action="http://data.person/PersonInformationWS/insertPersonProfileRequest" message="tns:insertPersonProfile" />
+<output wsam:Action="http://data.person/PersonInformationWS/insertPersonProfileResponse" message="tns:insertPersonProfileResponse" />
 </operation>
 <operation name="selectPersonInformationByID">
 <input wsam:Action="http://data.person/PersonInformationWS/selectPersonInformationByIDRequest" message="tns:selectPersonInformationByID" />
@@ -90,7 +90,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="updatePersonProfile">
+<operation name="selectPersonInformationByFilterByFullname">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -99,7 +99,16 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="insertPersonProfile">
+<operation name="getAge">
+<soap:operation soapAction="" />
+<input>
+<soap:body use="literal" />
+</input>
+<output>
+<soap:body use="literal" />
+</output>
+</operation>
+<operation name="updatePersonProfile">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
@@ -117,16 +126,7 @@
 <soap:body use="literal" />
 </output>
 </operation>
-<operation name="selectPersonInformationByFilterByFullname">
-<soap:operation soapAction="" />
-<input>
-<soap:body use="literal" />
-</input>
-<output>
-<soap:body use="literal" />
-</output>
-</operation>
-<operation name="getAge">
+<operation name="insertPersonProfile">
 <soap:operation soapAction="" />
 <input>
 <soap:body use="literal" />
